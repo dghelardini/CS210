@@ -304,27 +304,29 @@ void MyList::removeBack()
 }
 int myList::find(char value)
 {
+
 	int pos = 0;
 	bool flag = false;
 	if (head == NULL)
 	{
 		return 0;
 	}
-	struct node *s;
-	s = head;
-	while (s != NULL)
+	struct node *temp;
+	temp = head;
+	while (temp != NULL)
 	{
 		pos++;
-		if (s->info == value)
+		if (temp->data == value)
 		{
 			flag = true;
 			return pos;
 		}
-		s = s->next;
+		temp = temp->next;
 	}
 	if (!flag)
 		return 0;
 }
+
 void MyList::move_to_front()
 {
 	if (head == NULL)
@@ -335,16 +337,16 @@ void MyList::move_to_front()
 	char stream[100001];
 	std::cout << "Enter the string of elements searched" << std::endl;
 	std::cin >> stream;
-	int len, pos;
-	len = strlen(stream);
-	for (int i = 0; i < len; i++)
+	int m, n;
+	m = strlen(stream);
+	for (int i = 0; i < m; i++)
 	{
 		if (find(stream[i]) != 0)
 		{
 			if (find(stream[i]) != 1)
 			{
-				pos = search(stream[i]);
-				remove(pos);
+				n = find(stream[i]);
+				remove(n);
 				insertFront(stream[i]);
 			}
 			std::cout << stream[i] << ": ";
@@ -352,9 +354,9 @@ void MyList::move_to_front()
 		}
 	}
 }
+
 void MyList::sort()
 {
-	struct node *nullptr, *s;
 	int value, temp;
 	if (head == NULL)
 	{
@@ -375,6 +377,6 @@ void MyList::sort()
 				s->counter = temp;
 			}
 		}
-		ptr = ptr->next;
+		nullptr = ptr->next;
 	}
 }
