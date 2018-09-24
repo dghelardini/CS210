@@ -27,9 +27,9 @@ public:
 	void removeItem(const int &value);
 	void insertAfter(const int &myData);
 	void removeAll(const int &duplicate);
-	void find();
-	void move_to_front();
-	void sort();
+	int find(char value);
+	void moveToFront(const int &value);
+	void quickSort(int A[], int lower, int upper);
 	MyList()
 	{
 		start = NULL;
@@ -42,7 +42,7 @@ public:
 private:
 	bool remove(const int &value);
 	bool isEmpty() const;
-	Node * head; //must initialize to null
+	Node *head; //must initialize to null
 	Node *tail;
 	Node *current;
 };

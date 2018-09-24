@@ -302,7 +302,7 @@ void MyList::removeBack()
 	}
 
 }
-int myList::find(char value)
+int MyList::find(char value)
 {
 	int pos = 0;
 	bool flag = false;
@@ -325,56 +325,76 @@ int myList::find(char value)
 	if (!flag)
 		return 0;
 }
-void MyList::move_to_front()
+
+void MyList::moveToFront(const int &value)
 {
+	Node *previous = head;
+	current = head;
+
 	if (head == NULL)
 	{
 		std::cout << "The List is Empty, first create the list" << std::endl;
 		return;
 	}
-	char stream[100001];
-	std::cout << "Enter the string of elements searched" << std::endl;
-	std::cin >> stream;
-	int len, pos;
-	len = strlen(stream);
-	for (int i = 0; i < len; i++)
+	
+	//search the list
+	while(current->data != value && current->next != nullptr)
 	{
-		if (find(stream[i]) != 0)
+		if (current->next == nullptr)
 		{
-			if (find(stream[i]) != 1)
-			{
-				pos = search(stream[i]);
-				remove(pos);
-				insertFront(stream[i]);
-			}
-			std::cout << stream[i] << ": ";
-			printList();
+			std::cout << "The list does not contain that item" << std::endl;
+		}
+		else if (current->data == value)
+		{
+			//set the previous node's next to the current's next 
+			previous->next = current->next;
+			//set the current's next to the head
+			current->next = head;
+			//update head
+			head = current;
+		}
+		else
+		{
+			//go to next node
+			current = current->next;
 		}
 	}
+	current = nullptr;
+	previous = nullptr;
 }
-void MyList::sort()
+
+void swap(int *a, int *b) 
 {
-	struct node *nullptr, *s;
-	int value, temp;
-	if (head == NULL)
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+int findPartition(int list[], int lower, int upper)
+{
+	int var = list[upper];
+	int index = (lower - 1);
+
+	for (int j = lower; j <= upper - 1; j++)
 	{
-		return;
-	}
-	nullptr = head;
-	while (nullptr != NULL)
-	{
-		for (s = nullptr->next; s != NULL; s = s->next)
+		if (list[j] <= var)
 		{
-			if (nullptr->counter < s->counter)
-			{
-				value = nullptr->info;
-				temp = nullptr->counter;
-				nullptr->info = s->info;
-				nullptr->counter = s->counter;
-				s->info = value;
-				s->counter = temp;
-			}
+			index++;
+			swap(&list[index], &list[j]);
 		}
-		ptr = ptr->next;
 	}
+	swap(&list[index + 1], &list[upper]);
+	return (index + 1);
+}
+
+void MyList::quickSort(int A[], int lower, int upper)
+{
+	if (lower < upper)
+	{
+		//find the partition and sort each half recursively
+		int partition = findPartition(A, lower, upper);
+		quickSort(A, lower, partition - 1);
+		quickSort(A, partition + 1, upper);
+	}
+
 }

@@ -2,6 +2,7 @@
 void MyList::moveToFront(const int &value)
 {
 	Node *previous = head;
+	current = head;
 
 	if (head == NULL)
 	{
@@ -31,5 +32,6 @@ void MyList::moveToFront(const int &value)
 			current = current->next;
 		}
 	}
+	current = nullptr;
 	previous = nullptr;
 }
