@@ -1,0 +1,27 @@
+void MyList::move_to_front()
+{
+	if (head == NULL)
+	{
+		std::cout << "The List is Empty, first create the list" << std::endl;
+		return;
+	}
+	char stream[100001];
+	std::cout << "Enter the string of elements searched" << std::endl;
+	std::cin >> stream;
+	int m, n;
+	m = strlen(stream);
+	for (int i = 0; i < m; i++)
+	{
+		if (find(stream[i]) != 0)
+		{
+			if (find(stream[i]) != 1)
+			{
+				n = find(stream[i]);
+				remove(n);
+				insertFront(stream[i]);
+			}
+			std::cout << stream[i] << ": ";
+			printList();
+		}
+	}
+}
