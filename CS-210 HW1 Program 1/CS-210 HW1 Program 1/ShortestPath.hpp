@@ -6,27 +6,33 @@
 #ifndef SHORTESTPATH_GUARD
 #define SHORTESTPATH_GUARD
 
-#define  SIZE 5
+#define  NUMBER_VERTICES 5 //Define the number of vertices here
 
 #include <iostream>
 
 int main()
-{
-	//adjacent vertices
+{													//v0	v1	v2	v3
+	int matrixW[NUMBER_VERTICES][NUMBER_VERTICES] = {};
 
+
+	system("PAUSE");
 }
 
 template <class T>
 class ShortestPath
 {
-	T A[SIZE][SIZE];
+	T A[][];
 
 	//Algorithm 3.4 from book
 	//W[][] is the matrix for the original graph
 	//D[][] is the matrix for the weights of W
 	//P[][] is the matrix is the adjacency
-	
-	void floyd2(int n, const T W[SIZE][SIZE], T D[SIZE][SIZE], T P[SIZE][SIZE])
+	void numVertices(int n) 
+	{
+		floyd2(W[n][n], D[n][n], P[n][n]);
+	}
+
+	void floyd2(const T W[][], T D[][], T P[][])
 	{
 		int index, i, j, k;
 
