@@ -1,0 +1,27 @@
+int MyList::find(const int &myData)
+{
+	Node *temp = new Node;
+	temp->data = myData;
+
+	int pos = 0;
+	bool flag = false;
+
+	if (head == nullptr)
+	{
+		return 0;
+	}
+	
+	temp = head;
+	while (temp != NULL)
+	{
+		pos++;
+		if (temp->data == myData)
+		{
+			flag = true;
+			return pos;
+		}
+		temp = temp->next;
+	}
+	if (!flag)
+		return 0;
+}
