@@ -1,0 +1,34 @@
+
+void MyList::moveToFront(const int &value)
+{
+	Node *previous = head;
+
+	if (head == NULL)
+	{
+		std::cout << "The List is Empty, first create the list" << std::endl;
+		return;
+	}
+	
+	//search the list
+	while(current->data != value && current->next != nullptr)
+	{
+		if (current->next == nullptr)
+		{
+			std::cout << "The list does not contain that item" << std::endl;
+		}
+		else if (current->data == value)
+		{
+			//set the previous node's next to the current's next 
+			previous->next = current->next;
+			//set the current's next to the head
+			current->next = head;
+			//update head
+			head = current;
+		}
+		else
+		{
+			//go to next node
+			current = current->next;
+		}
+	}
+}
