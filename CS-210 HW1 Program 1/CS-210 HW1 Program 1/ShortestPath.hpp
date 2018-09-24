@@ -16,15 +16,16 @@ int main()
 
 }
 
+template <class T>
 class ShortestPath
 {
-	int A[SIZE][SIZE];
+	T A[SIZE][SIZE];
 
 	//Algorithm 3.4 from book
 	//W[][] is the matrix for the original graph
 	//D[][] is the matrix for the weights of W
 	//P[][] is the matrix is the adjacency
-	template <class T>
+	
 	void floyd2(int n, const T W[SIZE][SIZE], T D[SIZE][SIZE], T P[SIZE][SIZE])
 	{
 		int index, i, j, k;
@@ -37,6 +38,7 @@ class ShortestPath
 			}
 		}
 		D = W;
+		A = P;
 		
 		for (k = 1; k <= n; k++)
 		{
