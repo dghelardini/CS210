@@ -31,4 +31,5 @@ void MyList::moveToFront(const int &value)
 			current = current->next;
 		}
 	}
+	previous = nullptr;
 }
