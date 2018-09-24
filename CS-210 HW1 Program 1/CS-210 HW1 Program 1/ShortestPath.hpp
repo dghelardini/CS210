@@ -11,9 +11,13 @@
 #include <iostream>
 
 int main()
-{													//v0	v1	v2	v3
-	int matrixW[NUMBER_VERTICES][NUMBER_VERTICES] = {};
+{													
+	int matrixW[NUMBER_VERTICES][NUMBER_VERTICES] = {	{ 0,  0, -2, 0 },
+														{ 4,  0,  3, 0 },
+														{ 0,  0,  0, 2 },
+														{ 0, -1,  0, 0 } };
 
+	
 
 	system("PAUSE");
 }
