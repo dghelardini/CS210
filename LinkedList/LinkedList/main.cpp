@@ -1,3 +1,8 @@
+//Names: Daelyn Ghelardini, Nicole Lawson, Natalia Sobery, Mia Walker
+//Class: CS-210-01
+//Homework Assignment #1
+//Program 2
+
 #include "myList.h"
 #include <iostream>
 
@@ -5,40 +10,42 @@
 int main()
 {
 	MyList obj;
-	obj.printList();
+	obj.showSOLL();
 
 	obj.insert(1);
-	obj.printList();
+	obj.showSOLL();
 
 	obj.insert(2);
-	obj.printList();
+	obj.showSOLL();
 
 	obj.insert(3);
-	obj.printList();
+	obj.showSOLL();
 
 	obj.insert(4);
-	obj.printList();
+	obj.showSOLL();
 
 	obj.insert(4);
-	obj.printList();
+	obj.showSOLL();
 
 	obj.insert(4);
-	obj.printList();
+	obj.showSOLL();
 
 	obj.insert(5);
-	obj.printList();
+	obj.showSOLL();
 
-	//obj.removeBack();
-	//obj.printList();
+	obj.removeBack();
+	obj.showSOLL();
 
-	//obj.removeFront();
-	//obj.printList();
+	obj.removeFront();
+	obj.showSOLL();
 
-	obj.removeItem(50);
-	obj.printList();
+	obj.removeItem(50); //Since delete is a keyword we renamed it removeItem
+	obj.showSOLL();
 
+	obj.moveToFront(3);
+	obj.showSOLL();
 
-
-	system("pause");
+	//system("pause");
 	return 0;
+	
 }

@@ -1,3 +1,8 @@
+//Names: Daelyn Ghelardini, Nicole Lawson, Natalia Sobery, Mia Walker
+//Class: CS-210-01
+//Homework Assignment #1
+//Program 2
+
 #include <iostream>
 #include "myList.h"
 #include <stdexcept>
@@ -19,14 +24,14 @@ MyList::MyList(const MyList & copy)
 MyList::~MyList()
 {
 	std::cout << "Destroying the items:" << std::endl;
-	printList();
+	showSOLL();
 	while (head != nullptr) {
 		removeBack();
 	}
-	printList();
+	showSOLL();
 }
 
-void MyList::printList()
+void MyList::showSOLL()
 {
 	if (isEmpty()) { //head == nullptr;
 		std::cout << "List is empty." << std::endl;
@@ -302,25 +307,30 @@ void MyList::removeBack()
 	}
 
 }
-int MyList::find(char value)
+
+int MyList::find(const int &myData)
 {
+	Node *temp = new Node;
+	temp->data = myData;
+
 	int pos = 0;
 	bool flag = false;
-	if (head == NULL)
+
+	if (head == nullptr)
 	{
 		return 0;
 	}
-	struct node *s;
-	s = head;
-	while (s != NULL)
+
+	temp = head;
+	while (temp != NULL)
 	{
 		pos++;
-		if (s->info == value)
+		if (temp->data == myData)
 		{
 			flag = true;
 			return pos;
 		}
-		s = s->next;
+		temp = temp->next;
 	}
 	if (!flag)
 		return 0;
