@@ -1,1 +1,3 @@
-﻿  Project5.vcxproj -> C:\Users\Natalia\source\repos\Project5\Debug\Project5.exe
+﻿  Djikstra.hpp
+c:\users\natalia\desktop\cs210\hw2 program 1 djikstra\project5\project5\djikstra.hpp(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Project5.vcxproj -> C:\Users\Natalia\Desktop\CS210\HW2 Program 1 Djikstra\Project5\Debug\Project5.exe
